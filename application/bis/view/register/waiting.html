@@ -1,0 +1,29 @@
+<!--包含头部文件-->
+{include file="public/header" /}
+<div class="cl pd-5 bg-1 bk-gray mt-20">
+  {if $detail}
+  <!--//调用common 文件下bisregister函数-->
+  <h1 style="text-align: center;">{$detail.status|bisRegister}</h1>
+  <h3 style="text-align: center;"><a id="time">5</a>  <a>秒后自动跳转</a></h1>
+  {else /}
+    <h1>不存在该入驻申请情况</h1>
+  {/if}
+</div>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    var wait = $("#time").html();
+
+   $(function(){
+       setInterval(function(){
+           wait--;
+           $("#time").html(wait);
+           if(wait==0){
+               window.location.href = "www.baidu.com";
+           }
+       },1000) ;
+   })
+  
+</script>
+</body>
+</html>
